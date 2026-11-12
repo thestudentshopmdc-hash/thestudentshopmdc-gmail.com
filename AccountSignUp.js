@@ -1,4 +1,4 @@
-const message = document.getElementById("message");
+const message = document.getElementById("message")
 console.log("here")
 const supabaseUrl = "https://rsndakviombsnwebuegy.supabase.co"
 const supabaseAnonKey = "sb_publishable_jLDAR7Kpb6W65lgmvpVSMA_9shoqFxk"
@@ -10,10 +10,10 @@ const submitbutton = document.getElementById("submitIn4")
 // Chuyen du lieu len database (auth)
 submitbutton.addEventListener("click", async (e)=>{
     e.preventDefault(); 
-    const Subname = document.getElementById("username").value.trim();
-    const Subemail = document.getElementById("email").value.trim();
-    const Subpassword = document.getElementById("password").value;
-    const Subrepassword = document.getElementById("re-password").value;
+    const Subname = document.getElementById("username").value.trim()
+    const Subemail = document.getElementById("email").value.trim()
+    const Subpassword = document.getElementById("password").value
+    const Subrepassword = document.getElementById("re-password").value
  
  if (Subrepassword !== Subpassword) {
   message.textContent="Mật khẩu nhập lại không khớp!";
@@ -46,8 +46,8 @@ submitbutton.addEventListener("click", async (e)=>{
 }); 
 
 async function Login() {
- const LoginEmail = document.getElementById("LoginEmail").value.trim();
- const LoginPassword = document.getElementById("LoginPassword").value;
+ const LoginEmail = document.getElementById("LoginEmail").value.trim()
+ const LoginPassword = document.getElementById("LoginPassword").value
 
  if (LoginEmail === "" || LoginPassword === "") {
   alert("Vui lòng nhập đầy đủ thông tin");
