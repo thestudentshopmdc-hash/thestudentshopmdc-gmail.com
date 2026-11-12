@@ -17,7 +17,7 @@ async function Signup() {
     const Subname = document.getElementById("username").value.trim()
     const Subemail = document.getElementById("email").value.trim()
     const Subpassword = document.getElementById("password").value
-    const Subrepassword = document.getElementById("re-password").value
+    const Subrepassword = document.getElementById("repassword").value
  
  if (Subname ==="" || Subemail ==="" || Subpassword ==="" || Subrepassword ==="") {
   SignupMessage.textContent="Vui lòng nhập đầy đủ thông tin";
