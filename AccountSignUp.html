@@ -9,15 +9,19 @@
 <body>
     <div class="information">
     <form>
+    <label>Username:</label>
     <div>
          <input required type="name" name = "Tên" id ="username" maxlength="30" placeholder="Nhập tên của bạn"
     </div> 
+    <label>Email:</label>
     <div>
         <input required type="email" name="Email" id = "email" placeholder="Nhập email của bạn"
     </div>
+    <label>Password:</label>
     <div>
         <input required type="password" name="password" id ="password" placeholder="Mật khẩu khởi tạo"
     </div>
+    <label>Re-password:</label>
     <div>
         <input required type="password" name="re-password" id ="re-password" placeholder="Nhập lại mật khẩu"
     </div>
@@ -35,10 +39,10 @@
     <div id="LoginPage">
         <h1> Đăng nhập tại đây</h1>
         <br>
-        <label>Email</label>
+        <label>Email:</label>
         <input required type="email" placeholder="Nhập email" id="LoginEmail">
         <br>
-        <label>Password</label>
+        <label>Password:</label>
         <input required type="password" placeholder="Nhập mật khẩu" id="LoginPassword">
         <br>
         <button onclick="Login()" type="button" class="button">Đăng nhập</button>
