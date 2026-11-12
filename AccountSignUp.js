@@ -3,6 +3,7 @@ const SignupMessage = document.getElementById("SignupMessage")
 const LoginMessage = document.getElementById("LoginMessage")
 const NameMessage = document.getElementById("NameMessage")
 const EmailMessage = document.getElementById("EmailMessage")
+SignupMessage.textContent = "blabla"
 
 console.log("here")
 const supabaseUrl = "https://rsndakviombsnwebuegy.supabase.co"
