@@ -1,7 +1,7 @@
 
 console.log("here")
 const supabaseUrl = "https://rsndakviombsnwebuegy.supabase.co"
-const supabaseAnonKey = "sb_publishable_jLDAR7Kpb6W65lgmvpVSMA_9shoqFxk"
+const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJzbmRha3Zpb21ic253ZWJ1ZWd5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ0NzcxNTUsImV4cCI6MjExMDA1MzE1NX0.Quj-ZLPpdIcs-4mSm66TFxOQqzkeUolfc07O55aPTVY"
 // Truy cập trực tiếp qua hàm global do CDN cung cấp
  const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseAnonKey); 
 // Đăng ký tài khoản cho người dùng
