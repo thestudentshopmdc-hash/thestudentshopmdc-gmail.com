@@ -1,0 +1,28 @@
+#background{
+    background-color:rgb(92, 225, 230) ; 
+    width: cover ; 
+    height: 207px ; 
+}
+#background2{
+    background-color: rgb(92, 184, 230); 
+    width: cover ; 
+    height: 103px;
+    position: relative; 
+    bottom: 103px; 
+}
+h1{
+    color: white; 
+    font-family:"Press Start 2P"; 
+    text-align: center;
+    position: relative ;
+    bottom: 200px;  
+}
+.Searching{
+    position: relative ; 
+    bottom:  25px; 
+}
+#imageAC{
+    position: relative;
+    left: 30px;
+    bottom: 375px; 
+}
