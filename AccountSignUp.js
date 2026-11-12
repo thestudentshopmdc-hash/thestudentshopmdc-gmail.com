@@ -15,12 +15,12 @@ submitbutton.addEventListener("click", async (e)=>{
     const Subpassword = document.getElementById("password").value
     const Subrepassword = document.getElementById("re-password").value
  
- if (Subrepassword !== Subpassword) {
-  message.textContent="Mật khẩu nhập lại không khớp!";
-  return;
- }
  if (Subname ==="" || Subemail ==="" || Subpassword ==="" || Subrepassword ==="") {
   alert("Vui lòng nhập đầy đủ thông tin");
+  return;
+ }
+ if (Subrepassword !== Subpassword) {
+  message.textContent="Mật khẩu nhập lại không khớp!";
   return;
  }
     const {data, error}= await supabaseClient.auth.signUp({
@@ -84,7 +84,7 @@ function updateUI(session) {
 }
 
 async function getSession() {
- const { data, error } = supabaseClient.auth.getSession();
+ const { data, error } = await supabaseClient.auth.getSession();
  if (error) {
   alert("Không thể kiểm tra phiên đăng nhập");
   return;
