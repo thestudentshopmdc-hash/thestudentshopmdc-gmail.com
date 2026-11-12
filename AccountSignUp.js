@@ -44,3 +44,19 @@ submitbutton.addEventListener("click", async (e)=>{
   return;
  }
 }); 
+
+async function Login() {
+ const LoginEmail = document.getElementById("LoginEmail").value
+ const LoginPassword = document.getElementById("LoginPassword").value
+
+ const { data, error } = await supabase.auth.signInWithPassword ({
+  email : LoginEmail,
+  password : LoginPassword
+ });
+ if (error) {
+  alert("Đăng nhập thất bại");
+  return;
+ }
+ alert("Đăng nhập thành công");
+ 
+}
