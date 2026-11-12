@@ -20,7 +20,6 @@ async function Signup() {
     const Subrepassword = document.getElementById("re-password").value
  
  if (Subname ==="" || Subemail ==="" || Subpassword ==="" || Subrepassword ==="") {
-  alert("bruh");
   SignupMessage.textContent="Vui lòng nhập đầy đủ thông tin";
   return;
  }
