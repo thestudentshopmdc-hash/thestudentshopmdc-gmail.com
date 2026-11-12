@@ -72,6 +72,7 @@ async function Login() {
   return;
  }
  LoginMessage.textContent="Đăng nhập thành công!";
+ window.location.href="index.html";
  
 }
 
