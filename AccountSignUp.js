@@ -38,12 +38,14 @@ async function Signup() {
     });
 
  if (error) {
-        alert("Đăng ký không thành công do "+ error.message )
-    }
- if (data.session) {
-        alert("Đăng ký thành công, kiểm tra và xác nhận email của bạn nhé!");
-        window.location.href="UserPage.html";
-    } 
+  SignupMessage.textContent="Đăng ký không thành công do "+ error.message;
+  return;
+ }
+ if (!data.session) {
+  SignupMessage.textContent="Đăng ký thành công, kiểm tra và xác nhận email của bạn nhé!";
+  return;
+ } 
+ window.location.href="UserPage.html";
 }
 async function Login() {
  const LoginEmail = document.getElementById("LoginEmail").value.trim()
