@@ -37,7 +37,7 @@ async function Signup() {
             }
         }
     });
-}
+
  if (error) {
         alert("Đăng ký không thành công do "+ error.message )
     }
@@ -45,7 +45,7 @@ async function Signup() {
         alert("Đăng ký thành công, kiểm tra và xác nhận email của bạn nhé!");
         window.location.href="UserPage.html";
     } 
-
+}
 async function Login() {
  const LoginEmail = document.getElementById("LoginEmail").value.trim()
  const LoginPassword = document.getElementById("LoginPassword").value
