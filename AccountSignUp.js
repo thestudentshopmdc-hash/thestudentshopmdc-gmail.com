@@ -1,6 +1,7 @@
 const message = document.getElementById("message")
 const SignupMessage = document.getElementById("SignupMessage")
 const LoginMessage = document.getElementById("LoginMessage")
+const LogoutMessage = document.getElementById("LogoutMessage")
 const NameMessage = document.getElementById("NameMessage")
 const EmailMessage = document.getElementById("EmailMessage")
 
@@ -92,29 +93,34 @@ function updateUI(session) {
  }
 }
 
-async function getSession() {
- const { data, error } = await supabaseClient.auth.getSession();
- if (error) {
-  alert("Không thể kiểm tra phiên đăng nhập");
+async function Logout() {
+ LogoutMessage.textContent ="";
+
+ const { data } = supabaseClient.auth.getSession();
+ if (!data.session) {
+  LogoutMessage.textContent = "Bạn hiện chưa đăng nhập";
   return;
  }
- updateUI(data.session);
-}
-
-
-async function Logout() {
- 
  
  const {error} = await supabaseClient.auth.signOut();
   if (error) {
-   alert("Đăng xuất thất bại");
+   LogoutMessage.textContent="Đăng xuất thất bại" + error.message;
    return;
   }
-  alert("Đăng xuất thành công");
+ LogoutMessage.textContent="Đăng xuất thành công";
 }
 
 supabaseClient.auth.onAuthStateChange((event, session) => {
  updateUI(session);
 });
+
+async function getSession() {
+ const { data, error } = await supabaseClient.auth.getSession();
+ if (error) {
+  console.log(error.message);
+  return;
+ }
+ updateUI(data.session);
+}
 
 getSession();
