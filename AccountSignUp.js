@@ -36,16 +36,24 @@ submitbutton.addEventListener("click", async (e)=>{
  if (error) {
         alert("Đăng ký không thành công do "+ error.message )
     }
- else{
-        alert("Đăng ký thành công, kiểm tra và xác nhận email của bạn nhé!")
-        window.location.href="UserPage.html"
+ if {
+        alert("Đăng ký thành công, kiểm tra và xác nhận email của bạn nhé!");
+        window.location.href="UserPage.html";
     } 
+ else {
+  alert("Đăng ký thành công");
+ }
 }); 
 
 async function Login() {
  const LoginEmail = document.getElementById("LoginEmail").value.trim();
  const LoginPassword = document.getElementById("LoginPassword").value;
 
+ if (LoginEmail === "" || LoginPassword === "") {
+  alert("Vui lòng nhập đầy đủ thông tin");
+  return;
+ }
+ 
  const { data, error } = await supabaseClient.auth.signInWithPassword ({
   email : LoginEmail,
   password : LoginPassword
@@ -58,11 +66,44 @@ async function Login() {
  
 }
 
+async function getUser() {
+ const { data, error } = await supabaseClient.auth.getUser();
+ if (error) {
+  return null;
+  }
+ return data.user;
+}
+
+function updateUI(session) {
+ if (session) {
+  console.log("Đã đăng nhập");
+ }
+ else {
+ console.log("Chưa đăng nhập");
+ }
+}
+
+async function getSession() {
+ const { data, error } = supabaseClient.auth.getSession();
+ if (error) {
+  alert("Không thể kiểm tra phiên đăng nhập");
+  return;
+ }
+ updateUI(data.session);
+}
+
+
 async function Logout() {
- const {error} = await supabaseClient.auth.signOut({
+ const {error} = await supabaseClient.auth.signOut();
   if (error) {
+   alert("Đăng xuất thất bại");
    return;
   }
   alert("Đăng xuất thành công");
- });
 }
+
+supabaseClient.auth.onAuthStateChange((event, session) => {
+ updateUI(session);
+});
+
+getSession();
