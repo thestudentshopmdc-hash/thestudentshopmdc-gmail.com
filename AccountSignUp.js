@@ -1,19 +1,19 @@
-const message = document.getElementById("message")
 const SignupMessage = document.getElementById("SignupMessage")
 const LoginMessage = document.getElementById("LoginMessage")
+const LogoutMessage = document.getElementById("LogoutMessage")
 const NameMessage = document.getElementById("NameMessage")
 const EmailMessage = document.getElementById("EmailMessage")
 
-console.log("here")
 const supabaseUrl = "https://rsndakviombsnwebuegy.supabase.co"
 const supabaseAnonKey = "sb_publishable_jLDAR7Kpb6W65lgmvpVSMA_9shoqFxk"
 // Truy cập trực tiếp qua hàm global do CDN cung cấp
  const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseAnonKey); 
 // Đăng ký tài khoản cho người dùng
 
-const submitbutton = document.getElementById("submitIn4")
 // Chuyen du lieu len database (auth)
 async function Signup() {
+ SignupMessage.textContent="";
+ 
     const Subname = document.getElementById("username").value.trim()
     const Subemail = document.getElementById("email").value.trim()
     const Subpassword = document.getElementById("password").value
@@ -38,19 +38,25 @@ async function Signup() {
     });
 
  if (error) {
-  SignupMessage.textContent="Đăng ký không thành công do "+ error.message;
+  SignupMessage.textContent="Đăng ký thất bại: "+ error.message;
   return;
  }
  window.location.href="UserPage.html";
 }
 async function Login() {
  LoginMessage.textContent="";
+
+ const { data: currentData } = await supabaseClient.auth.getSession();
+ if (currentData.session) {
+  LoginMessage.textContent = "Tài khoản đang được đăng nhập";
+  return;
+ }
  
- const LoginEmail = document.getElementById("LoginEmail").value.trim()
- const LoginPassword = document.getElementById("LoginPassword").value
+ const LoginEmail = document.getElementById("LoginEmail").value.trim();
+ const LoginPassword = document.getElementById("LoginPassword").value;
 
  if (LoginEmail === "" || LoginPassword === "") {
-  alert("Vui lòng nhập đầy đủ thông tin");
+  LoginMessage.textContent="Vui lòng nhập đầy đủ thông tin";
   return;
  }
  
@@ -59,10 +65,11 @@ async function Login() {
   password : LoginPassword
  });
  if (error) {
-  alert("Đăng nhập thất bại");
+  LoginMessage.textContent="Đăng nhập thất bại: " + error.message;
   return;
  }
- alert("Đăng nhập thành công");
+ LoginMessage.textContent="Đăng nhập thành công!";
+ window.location.href="index.html";
  
 }
 
@@ -75,10 +82,11 @@ async function getUser() {
 }
 
 function updateUI(session) {
+ if (!NameMessage || !EmailMessage) return;
  if (session) {
   const user = session.user;
-  NameMessage.textContent = user.user_metadata.name || "chưa có tên";
-  EmailMessage.textContent = usdr.email || "chưa có email";
+  NameMessage.textContent = user.user_metadata?.name || "chưa có tên";
+  EmailMessage.textContent = user.email || "chưa có email";
  }
  else {
   NameMessage.textContent = "Chưa có thông tin";
@@ -86,27 +94,32 @@ function updateUI(session) {
  }
 }
 
-async function getSession() {
- const { data, error } = await supabaseClient.auth.getSession();
- if (error) {
-  alert("Không thể kiểm tra phiên đăng nhập");
+async function Logout() {
+ LogoutMessage.textContent ="";
+
+ const { data } = await supabaseClient.auth.getSession();
+ if (!data.session) {
+  LogoutMessage.textContent = "Bạn hiện chưa đăng nhập";
   return;
  }
- updateUI(data.session);
-}
-
-
-async function Logout() {
+ 
  const {error} = await supabaseClient.auth.signOut();
   if (error) {
-   alert("Đăng xuất thất bại");
+   LogoutMessage.textContent="Đăng xuất thất bại: " + error.message;
    return;
   }
-  alert("Đăng xuất thành công");
+ LogoutMessage.textContent="Đăng xuất thành công";
 }
 
 supabaseClient.auth.onAuthStateChange((event, session) => {
  updateUI(session);
 });
 
-getSession();
+async function getSession() {
+ const { data, error } = await supabaseClient.auth.getSession();
+ if (error) {
+  console.log(error.message);
+  return;
+ }
+ updateUI(data.session);
+}
