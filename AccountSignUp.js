@@ -1,4 +1,4 @@
-
+const message = document.getElementById("message");
 console.log("here")
 const supabaseUrl = "https://rsndakviombsnwebuegy.supabase.co"
 const supabaseAnonKey = "sb_publishable_jLDAR7Kpb6W65lgmvpVSMA_9shoqFxk"
@@ -16,7 +16,7 @@ submitbutton.addEventListener("click", async (e)=>{
     const Subrepassword = document.getElementById("re-password").value;
  
  if (Subrepassword !== Subpassword) {
-  alert("Mật khẩu nhập lại không đúng!");
+  message.textContent="Mật khẩu nhập lại không khớp!";
   return;
  }
  if (Subname ==="" || Subemail ==="" || Subpassword ==="" || Subrepassword ==="") {
