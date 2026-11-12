@@ -78,7 +78,7 @@ function updateUI(session) {
  if (session) {
   const user = session.user;
   NameMessage.textContent = user.user_metadata.name || "chưa có tên";
-  EmailMessage.textContent = user.email || "chưa có email";
+  EmailMessage.textContent = usdr.email || "chưa có email";
  }
  else {
   NameMessage.textContent = "Chưa có thông tin";
