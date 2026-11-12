@@ -41,10 +41,6 @@ async function Signup() {
   SignupMessage.textContent="Đăng ký không thành công do "+ error.message;
   return;
  }
- if (!data.session) {
-  SignupMessage.textContent="Đăng ký thành công, kiểm tra và xác nhận email của bạn nhé!";
-  return;
- } 
  window.location.href="UserPage.html";
 }
 async function Login() {
