@@ -57,3 +57,12 @@ async function Login() {
  alert("Đăng nhập thành công");
  
 }
+
+async function Logout() {
+ const {error} = await supabaseClient.auth.signOut({
+  if (error) {
+   return;
+  }
+  alert("Đăng xuất thành công");
+ });
+}
