@@ -1,4 +1,9 @@
 const message = document.getElementById("message")
+const SignupMessage = document.getElementById("SignupMessage")
+const LoginMessage = document.getElementById("LoginMessage")
+const NameMessage = document.getElementById("NameMessage")
+const EmailMessage = document.getElementById("EmailMessage")
+
 console.log("here")
 const supabaseUrl = "https://rsndakviombsnwebuegy.supabase.co"
 const supabaseAnonKey = "sb_publishable_jLDAR7Kpb6W65lgmvpVSMA_9shoqFxk"
@@ -16,7 +21,7 @@ submitbutton.addEventListener("click", async (e)=>{
     const Subrepassword = document.getElementById("re-password").value
  
  if (Subname ==="" || Subemail ==="" || Subpassword ==="" || Subrepassword ==="") {
-  alert("Vui lòng nhập đầy đủ thông tin");
+  SignupMessage.textContent="Vui lòng nhập đầy đủ thông tin";
   return;
  }
  if (Subrepassword !== Subpassword) {
