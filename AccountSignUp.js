@@ -24,7 +24,7 @@ async function Signup() {
   return;
  }
  if (Subrepassword !== Subpassword) {
-  message.textContent="Mật khẩu nhập lại không khớp!";
+  SignupMessage.textContent="Mật khẩu nhập lại không khớp!";
   return;
  }
     const {data, error}= await supabaseClient.auth.signUp({
