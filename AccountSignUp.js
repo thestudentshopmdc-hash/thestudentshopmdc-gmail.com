@@ -22,6 +22,7 @@ submitbutton.addEventListener("click", async (e)=>{
     const Subrepassword = document.getElementById("re-password").value
  
  if (Subname ==="" || Subemail ==="" || Subpassword ==="" || Subrepassword ==="") {
+  alert("bruh");
   SignupMessage.textContent="Vui lòng nhập đầy đủ thông tin";
   return;
  }
