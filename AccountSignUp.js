@@ -36,7 +36,7 @@ submitbutton.addEventListener("click", async (e)=>{
  if (error) {
         alert("Đăng ký không thành công do "+ error.message )
     }
- if {
+ if (data.session) {
         alert("Đăng ký thành công, kiểm tra và xác nhận email của bạn nhé!");
         window.location.href="UserPage.html";
     } 
