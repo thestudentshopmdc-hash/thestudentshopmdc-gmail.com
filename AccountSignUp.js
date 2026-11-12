@@ -13,8 +13,7 @@ const supabaseAnonKey = "sb_publishable_jLDAR7Kpb6W65lgmvpVSMA_9shoqFxk"
 
 const submitbutton = document.getElementById("submitIn4")
 // Chuyen du lieu len database (auth)
-submitbutton.addEventListener("click", async (e)=>{
-    e.preventDefault(); 
+async function SignUp() {
     const Subname = document.getElementById("username").value.trim()
     const Subemail = document.getElementById("email").value.trim()
     const Subpassword = document.getElementById("password").value
@@ -38,7 +37,7 @@ submitbutton.addEventListener("click", async (e)=>{
             }
         }
     });
-
+}
  if (error) {
         alert("Đăng ký không thành công do "+ error.message )
     }
