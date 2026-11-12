@@ -15,6 +15,8 @@ const supabaseAnonKey = "sb_publishable_jLDAR7Kpb6W65lgmvpVSMA_9shoqFxk"
 const submitbutton = document.getElementById("submitIn4")
 // Chuyen du lieu len database (auth)
 async function Signup() {
+ SignupMessage.textContent="";
+ 
     const Subname = document.getElementById("username").value.trim()
     const Subemail = document.getElementById("email").value.trim()
     const Subpassword = document.getElementById("password").value
@@ -47,7 +49,7 @@ async function Signup() {
 async function Login() {
  LoginMessage.textContent="";
 
- const { data: currentData } = supabaseClient.auth.getSession();
+ const { data: currentData } = await supabaseClient.auth.getSession();
  if (currentData.session) {
   LoginMessage.textContent = "Tài khoản đang được đăng nhập";
   return;
@@ -96,7 +98,7 @@ function updateUI(session) {
 async function Logout() {
  LogoutMessage.textContent ="";
 
- const { data } = supabaseClient.auth.getSession();
+ const { data } = await supabaseClient.auth.getSession();
  if (!data.session) {
   LogoutMessage.textContent = "Bạn hiện chưa đăng nhập";
   return;
