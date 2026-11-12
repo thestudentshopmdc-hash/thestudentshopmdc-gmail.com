@@ -38,17 +38,25 @@ async function Signup() {
     });
 
  if (error) {
-  SignupMessage.textContent="Đăng ký không thành công do "+ error.message;
+  SignupMessage.textContent="Đăng ký thất bại: "+ error.message;
   return;
  }
  window.location.href="UserPage.html";
 }
 async function Login() {
- const LoginEmail = document.getElementById("LoginEmail").value.trim()
- const LoginPassword = document.getElementById("LoginPassword").value
+ LoginMessage.textContent="";
+
+ const { data: currentData } = supabaseClient.auth.getSession();
+ if (currentData.session) {
+  LoginMessage.textContent = "Tài khoản đang được đăng nhập";
+  return;
+ }
+ 
+ const LoginEmail = document.getElementById("LoginEmail").value.trim();
+ const LoginPassword = document.getElementById("LoginPassword").value;
 
  if (LoginEmail === "" || LoginPassword === "") {
-  alert("Vui lòng nhập đầy đủ thông tin");
+  LoginMessage.textContent="Vui lòng nhập đầy đủ thông tin";
   return;
  }
  
@@ -57,10 +65,10 @@ async function Login() {
   password : LoginPassword
  });
  if (error) {
-  alert("Đăng nhập thất bại");
+  LoginMessage.textContent="Đăng nhập thất bại: " + error.message;
   return;
  }
- alert("Đăng nhập thành công");
+ LoginMessage.textContent="Đăng nhập thành công!";
  
 }
 
@@ -74,10 +82,13 @@ async function getUser() {
 
 function updateUI(session) {
  if (session) {
-  console.log("Đã đăng nhập");
+  const user = session.user;
+  NameMessage.textContent = user.user_metadata.name || "chưa có tên";
+  EmailMessage.textContent = usdr.email || "chưa có email";
  }
  else {
- console.log("Chưa đăng nhập");
+  NameMessage.textContent = "Chưa có thông tin";
+  EmailMessage.textContent = "Chưa có thông tin";
  }
 }
 
@@ -92,6 +103,8 @@ async function getSession() {
 
 
 async function Logout() {
+ 
+ 
  const {error} = await supabaseClient.auth.signOut();
   if (error) {
    alert("Đăng xuất thất bại");
