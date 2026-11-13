@@ -125,4 +125,3 @@ async function getSession() {
 }
 
 
-window.Signup = Signup; window.Login = Login; window.Logout = Logout;
