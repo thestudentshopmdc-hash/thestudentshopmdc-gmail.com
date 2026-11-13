@@ -55,7 +55,7 @@ Loginbutt.addEventListener("click", async (e)=>{
 
  const { data: currentData } = await supabaseClient.auth.getSession();
  if (currentData.session) {
-  LoginMessage.textContent = "Tài khoản đang được đăng nhập";
+  LoginMessage.textContent = "Tài khoản được đăng nhập thành công";
   return;
  }
  
