@@ -91,13 +91,13 @@
             user_FacebookLink: linkFacebook, 
             // ----------- Phần data của product-----------------
             product_Name: ProductName, 
-            product_Price: ProductDetail, 
-            product_Detail: ProductPrice 
+            product_Price: ProductPrice , 
+            product_Detail: ProductDetail
             }
          ])
         .select() // hàm này giúp mình tự thêm ID cho phần đăng ký đó
         if(error){
-            alert("Đăng ký thất bại"+ error.message)       // nếu gửi data thất bại
+            alert("Đăng ký thất bại do "+ error.message)       // nếu gửi data thất bại
         }
         else{
             alert("Đăng ký thành công") // nếu gửi thành công, cái này nháp còn tao định chuyển đến một page có thông tin như kiểu "Xin chúc mừng, bạn đã đăng ký thành công. Chúng mình sẽ xem sản phẩm của bạn trong 24h tới"
