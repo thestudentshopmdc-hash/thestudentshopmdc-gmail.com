@@ -42,7 +42,7 @@ submitButton.addEventListener("click", async (e)=>{
   SignupMessage.textContent="Đăng ký thất bại: "+ error.message;
   return;
  }
- window.location.href="UserPage.html";
+  SignupMessage.textContent= "Đăng ký thành công, vui lòng đăng nhập nhé!"
 }
 
 ); 
