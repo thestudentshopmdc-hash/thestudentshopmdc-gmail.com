@@ -60,10 +60,10 @@
 </body>
 
     <!--------------------------------- Phần script, tao làm luôn trên html cho nhanh------------------------->\
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> // thêm thư viện nha
 <script>
-    import { createClient } from '@supabase/supabase-js' // thêm thư viện nha 
-    const supabaseUrl = "https://rsndakviombsnwebuegy.supabase.co"
-    const supabaseAnonKey = "sb_publishable_jLDAR7Kpb6W65lgmvpVSMA_9shoqFxk"
+    const supabaseUrl = "https://rsndakviombsnwebuegy.supabase.co" // Url của supabase
+    const supabaseAnonKey = "sb_publishable_jLDAR7Kpb6W65lgmvpVSMA_9shoqFxk" // Key của supabase
     
     const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseAnonKey); 
     const submitButton = document.getElementById("submitIn4")
@@ -74,19 +74,19 @@
         const userName= document.getElementById("username").value 
 
          const { data, error } = await supabase
-        .from("ProductSignUp")
-        .insert([
+        .from("ProductSignUp") // Đây là tên table, nó sẽ xác định là nhập vào bảng table nào trong supabase
+        .insert([ //class insert này sẽ để nó chuyển thông tin vào table của mình
             {
-            user_name: userName 
+            user_name: userName //user_name là key (tên của column trong table bên supabase )
             
             }
          ])
         .select()
         if(error){
-            alert("Đăng ký thất bại"+ error.message)       
+            alert("Đăng ký thất bại"+ error.message)       // nếu gửi data thất bại
         }
         else{
-            alert("Đăng ký thành công")
+            alert("Đăng ký thành công") // nếu gửi thành công, cái này nháp còn tao định chuyển đến một page có thông tin như kiểu "Xin chúc mừng, bạn đã đăng ký thành công. Chúng mình sẽ xem sản phẩm của bạn trong 24h tới"
         }
         
 
@@ -94,20 +94,7 @@
 
 
         
-    }); 
-
-
-        
+    });    
 </script>
-
-
-
-
-
-
-
-
-
-
 
 </html>
