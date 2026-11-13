@@ -71,16 +71,31 @@
     submitButton.addEventListener("click", async(e)=>{
         e.preventDefault();
         const userName= document.getElementById("username").value 
-
+        const schoolName = document.getElementById("schoolName").value 
+        const phoneNumber = document.getElementById("phoneNumber").value 
+        const linkFacebook= document.getElementById("facebookAccount").value
+        // Khai báo biến cho Sản phẩm data
+        const ProductName= document.getElementById("ProductName").value 
+        const ProductDetail = document.getElementById("ProductDetail").value 
+        const ProductPrice = document.getElementById("PriceTag").value     
+        
+        // --------Phần Insert biến trên vào supabase table-----------------
          const { data, error } = await supabaseClient
         .from("ProductSignUp") // Đây là tên table, nó sẽ xác định là nhập vào bảng table nào trong supabase
         .insert([ //class insert này sẽ để nó chuyển thông tin vào table của mình
             {
-            user_name: userName //user_name là key (tên của column trong table bên supabase )
-            
+            // -----------Phần data của người dùng---------------
+            user_name: userName, //user_name là key (tên của column trong table bên supabase )
+            user_school:schoolName, 
+            user_ZaloTel: phoneNumber,
+            user_FacebookLink: linkFacebook, 
+            // ----------- Phần data của product-----------------
+            product_Name: ProductName, 
+            product_Price: ProductDetail, 
+            product_Detail: ProductPrice 
             }
          ])
-        .select()
+        .select() // hàm này giúp mình tự thêm ID cho phần đăng ký đó
         if(error){
             alert("Đăng ký thất bại"+ error.message)       // nếu gửi data thất bại
         }
