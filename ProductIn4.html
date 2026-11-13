@@ -60,7 +60,7 @@
 </body>
 
     <!--------------------------------- Phần script, tao làm luôn trên html cho nhanh------------------------->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> // thêm thư viện nha
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> <!--thêm thư viện nha-->
 <script type="module">
     const supabaseUrl = "https://rsndakviombsnwebuegy.supabase.co" // Url của supabase
     const supabaseAnonKey = "sb_publishable_jLDAR7Kpb6W65lgmvpVSMA_9shoqFxk" // Key của supabase
@@ -102,7 +102,7 @@
         }
         else{
             alert("Đăng ký thành công") // nếu gửi thành công, cái này nháp còn tao định chuyển đến một page có thông tin như kiểu "Xin chúc mừng, bạn đã đăng ký thành công. Chúng mình sẽ xem sản phẩm của bạn trong 24h tới"
-            MessageAfterProduct.textContent= "Đăng ký sản phẩm thành công"
+            MessageAfterProduct.textContent= "Đăng ký sản phẩm thành công"; 
             window.location.href="PhanDangKyThanhCong.html"; // Tự chuyển đến html file này
         }
         
