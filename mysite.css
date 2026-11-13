@@ -32,11 +32,14 @@ h1{
 }
 // thanh tìm kiếm //
 .Searchbox {
+    width: cover;
+    height: cover;
     position: absolute;
     left: 25%;
     bottom: 150px;
 }
 #Searchinput {
     width: 50%;
+    height: 50%;
     
 }
