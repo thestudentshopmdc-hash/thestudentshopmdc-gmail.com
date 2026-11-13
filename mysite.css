@@ -30,9 +30,13 @@ h1{
 #imageAC:hover {
     transform: scale(0.9);
 }
-
+// thanh tìm kiếm //
 .Searchbox {
     position: absolute;
     left: 25%;
+    bottom: 150px;
+}
+#Searchinput {
+    width: 50%;
     
 }
