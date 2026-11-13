@@ -47,8 +47,11 @@ submitButton.addEventListener("click", async (e)=>{
 }
 
 }); 
-async function Login() {
- LoginMessage.textContent="";
+// Phần đăng nhập
+const Loginbutt = document.getElementById("Loginbutt")
+Loginbutt.addEventListener("click", async (e)=>{
+  e.preventDefault();
+  LoginMessage.textContent="";
 
  const { data: currentData } = await supabaseClient.auth.getSession();
  if (currentData.session) {
@@ -75,8 +78,9 @@ async function Login() {
  LoginMessage.textContent="Đăng nhập thành công!";
  window.location.href="index.html";
  
-}
+}); 
 
+                           
 async function getUser() {
  const { data, error } = await supabaseClient.auth.getUser();
  if (error) {
