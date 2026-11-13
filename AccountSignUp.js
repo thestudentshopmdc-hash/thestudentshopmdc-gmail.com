@@ -123,3 +123,6 @@ async function getSession() {
  }
  updateUI(data.session);
 }
+
+
+window.Signup = Signup; window.Login = Login; window.Logout = Logout;
