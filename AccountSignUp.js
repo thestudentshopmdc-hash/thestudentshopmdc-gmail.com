@@ -45,7 +45,7 @@ submitButton.addEventListener("click", async (e)=>{
  window.location.href="UserPage.html";
 }
 
-}); 
+); 
 async function Login() {
  LoginMessage.textContent="";
 
