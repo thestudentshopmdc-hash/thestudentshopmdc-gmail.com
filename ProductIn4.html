@@ -99,17 +99,10 @@
         .select() // hàm này giúp mình tự thêm ID cho phần đăng ký đó
         if(error){
             alert("Đăng ký thất bại do "+ error.message)       // nếu gửi data thất bại
+            return ; 
         }
-        else{
             MessageAfterProduct.textContent= "Đăng ký sản phẩm thành công"; 
             window.location.href="PhanDangKyThanhCong.html"; // Tự chuyển đến html file này, trang này tao sẽ để kiểu như xác thực sản phẩm trong 24h
-        }
-        
-
-
-
-
-        
     });    
 </script>
 
