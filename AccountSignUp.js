@@ -11,9 +11,8 @@ const supabaseAnonKey = "sb_publishable_jLDAR7Kpb6W65lgmvpVSMA_9shoqFxk"
 // Đăng ký tài khoản cho người dùng
 
 // Chuyen du lieu len database (auth)
-async function Signup() {
+document.getElementById("submitIn4").addEvenlistener("click", function SignUp(){
  SignupMessage.textContent="";
- 
     const Subname = document.getElementById("username").value.trim()
     const Subemail = document.getElementById("email").value.trim()
     const Subpassword = document.getElementById("password").value
@@ -43,6 +42,10 @@ async function Signup() {
  }
  window.location.href="UserPage.html";
 }
+
+
+ 
+}); 
 async function Login() {
  LoginMessage.textContent="";
 
