@@ -1,4 +1,4 @@
-const SignupMessage = document.getElementById("SignupMessage")
+const SignupMessage1 = document.getElementById("SignupMessage")
 const LoginMessage = document.getElementById("LoginMessage")
 const LogoutMessage = document.getElementById("LogoutMessage")
 const NameMessage = document.getElementById("NameMessage")
@@ -38,7 +38,7 @@ async function Signup() {
     });
 
  if (error) {
-  SignupMessage.textContent="Đăng ký thất bại: "+ error.message;
+  SignupMessage1.textContent="Đăng ký thất bại: "+ error.message;
   return;
  }
  window.location.href="UserPage.html";
