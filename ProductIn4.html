@@ -68,12 +68,11 @@
     const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseAnonKey); 
     const submitButton = document.getElementById("submitIn4")
     // Insert dữ liệu vào table của 
-    import { supabase } from './supabaseClient.js' // Phần này cũng import library
     submitButton.addEventListener("click", async(e)=>{
         e.preventDefault();
         const userName= document.getElementById("username").value 
 
-         const { data, error } = await supabase
+         const { data, error } = await supabaseClient
         .from("ProductSignUp") // Đây là tên table, nó sẽ xác định là nhập vào bảng table nào trong supabase
         .insert([ //class insert này sẽ để nó chuyển thông tin vào table của mình
             {
