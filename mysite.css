@@ -32,15 +32,31 @@ h1{
 }
 // thanh tìm kiếm //
 .Searchbox {
-    width: cover;
-    height: cover;
-    position: absolute;
-    left: 25%;
-    bottom: 150px;
-    z-index: 10;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 #Searchinput {
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    transform: translateY(-50%);
     width: 50%;
-    height: 50%;
-    
+    height: 65%;
+}
+
+#Suggest {
+    position: absolute;
+    left: 25%;
+    top: 82,5%;
+    width: 50%;
+    background: white;
+    border: 1px solid #ccc;
+    list-style: none;
+    display: none;
+    z-index: 10;
+}
+
+#Suggest li {
+    cursor: pointer;
 }
