@@ -30,3 +30,9 @@ h1{
 #imageAC:hover {
     transform: scale(0.9);
 }
+
+.Searchbox {
+    position: absolute;
+    left: 25%;
+    
+}
