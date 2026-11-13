@@ -42,10 +42,11 @@ submitButton.addEventListener("click", async (e)=>{
   SignupMessage.textContent="Đăng ký thất bại: "+ error.message;
   return;
  }
+ else{
   SignupMessage.textContent= "Đăng ký thành công, vui lòng đăng nhập nhé!"
 }
 
-); 
+}); 
 async function Login() {
  LoginMessage.textContent="";
 
