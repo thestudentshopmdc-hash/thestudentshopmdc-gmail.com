@@ -61,14 +61,14 @@
 
     <!--------------------------------- Phần script, tao làm luôn trên html cho nhanh------------------------->\
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> // thêm thư viện nha
-<script>
+<script type="module">
     const supabaseUrl = "https://rsndakviombsnwebuegy.supabase.co" // Url của supabase
     const supabaseAnonKey = "sb_publishable_jLDAR7Kpb6W65lgmvpVSMA_9shoqFxk" // Key của supabase
     
     const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseAnonKey); 
     const submitButton = document.getElementById("submitIn4")
     // Insert dữ liệu vào table của 
-    import { supabase } from './supabaseClient.js'
+    import { supabase } from './supabaseClient.js' // Phần này cũng import library
     submitButton.addEventListener("click", async(e)=>{
         e.preventDefault();
         const userName= document.getElementById("username").value 
