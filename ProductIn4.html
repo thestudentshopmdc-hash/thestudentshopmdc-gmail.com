@@ -59,6 +59,47 @@
     </a>
 </body>
 
+    <!--------------------------------- Phần script, tao làm luôn trên html cho nhanh------------------------->\
+<script>
+    import { createClient } from '@supabase/supabase-js' // thêm thư viện nha 
+    const supabaseUrl = "https://rsndakviombsnwebuegy.supabase.co"
+    const supabaseAnonKey = "sb_publishable_jLDAR7Kpb6W65lgmvpVSMA_9shoqFxk"
+    
+    const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseAnonKey); 
+    const submitButton = document.getElementById("submitIn4")
+    // Insert dữ liệu vào table của 
+    import { supabase } from './supabaseClient.js'
+    submitButton.addEventListener("click", async(e)=>{
+        e.preventDefault();
+        const userName= document.getElementById("username").value 
+
+         const { data, error } = await supabase
+        .from("ProductSignUp")
+        .insert([
+            {
+            user_name: userName 
+            
+            }
+         ])
+        .select()
+        if(error){
+            alert("Đăng ký thất bại"+ error.message)       
+        }
+        else{
+            alert("Đăng ký thành công")
+        }
+        
+
+
+
+
+        
+    }); 
+
+
+        
+</script>
+
 
 
 
