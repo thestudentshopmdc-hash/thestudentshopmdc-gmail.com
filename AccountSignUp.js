@@ -12,7 +12,7 @@ const supabaseAnonKey = "sb_publishable_jLDAR7Kpb6W65lgmvpVSMA_9shoqFxk"
 
 // Chuyen du lieu len database (auth)
 const submitButton = document.getElementById("submitIn4")
-submitButton.addEvenlistener("click", function async userSignUp(e)=>{
+submitButton.addEvenlistener("click", async userSignUp(e)=>{
  e.preventDefault();
  SignupMessage.textContent="";
     const Subname = document.getElementById("username").value.trim()
