@@ -19,7 +19,7 @@
         <input required type="text" name="Trường" id = "schoolName" placeholder="Nhập trường bạn đang ">
       </div> <br>
     <div>
-        <label>Số điện thoại(Zalo)</label>
+        <label>Số điện thoại(Zalo):</label>
         <input required type="text" name="Số điện thoại" id ="phoneNumber" placeholder="Nhập số điện thoại">
     </div> <br>
     <div>
@@ -27,11 +27,33 @@
         <input required type="text" name="facebook" id ="facebookAccount" placeholder="Điền link tài khoản facebook">
     </div> <br>
     
-        </div> <!-- Đóng div class của UserInformation-->
+        </div> <!-- -------------Đóng div class của UserInformation---------------->
+
+        <!-- Phần html của thông tin sản phẩm-->
+        <div class = "ProductIn4">
+                 <div>
+         <h2> Thông tin sản phẩm đăng ký</h2>
+         <label> Tên sản phẩm </label>
+         <input required type="name" name = "TênSp" id ="ProductName" maxlength="100" placeholder="Điền tên sản phẩm">
+         </div> <br>
+      <div>
+        <label>Mô tả sản phẩm: </label>
+        <input required type="text" name="Describe" id = "ProductDetail" placeholder="Nhập chi tiết thông tin sản phẩm">
+      </div> <br>
+    <div>
+        <label>Giá bán:</label>
+        <input required type="number" name="PriceTag" id ="PriceTag" placeholder="Giá bán sản phẩm">
+    </div> <br>
+    <div>
+        <label>Hình ảnh sản phẩm: </label>
+        <input required type="file" name="imageProduct" id ="ProductImage" accept="image/*">
+    </div> <br>
+         
+        </div> <-- Đóng div class của Thông tin sản phẩm-->
             
         </div> <!-- Đóng div class của Information -->
 
-    <div id = "submitIn4"> <button type="button">Đăng ký</button></div>
+    <div id = "submitIn4"> <button type="button">Đăng ký sản phẩm</button></div>
     <a href= "index.html">
     <h2> Về lại trang chủ</h2>
     </a>
