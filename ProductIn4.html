@@ -87,7 +87,8 @@
         const cardImg= document.getElementById("ImageCard").files[0]; 
         const ProductImg= document.getElementById("ProductImage").files[0]; 
         const ext = cardImg.name.split('.').pop();
-        const filePath = `products/${productId}-${Date.now()}.${ext}`;        
+        const filePath = `${Date.now()}.${ext}`; 
+        
         
         //------------------ Phần lưu vào storage (Hình ảnh người dùng cung cấp)----------------------
         const {dataImgSTC, errorSTC} = await supabaseClient.storage
