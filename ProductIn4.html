@@ -84,27 +84,20 @@
         const ProductPrice = document.getElementById("PriceTag").value 
         
         // Khai báo biến cho Sản phẩm data (dạng file)
-        const ext = file.name.split('.').pop();
-        const filePath = `products/${productId}-${Date.now()}.${ext}`;
         const cardImg= document.getElementById("ImageCard").files[0]; 
         const ProductImg= document.getElementById("ProductImage").files[0]; 
-        
+        const ext = cardImg.name.split('.').pop();
+        const filePath = `products/${productId}-${Date.now()}.${ext}`;        
         
         //------------------ Phần lưu vào storage (Hình ảnh người dùng cung cấp)----------------------
         const {dataImgSTC, errorSTC} = await supabaseClient.storage
         .from ("student_Card")
         .upload (filePath,cardImg,{
             cacheControl: '3600', 
-            upsert: False, 
+            upsert: false, 
             contentType: cardImg.type
         }); 
-        const {dataImgPR, errorPR} = await supabaseClient.storage
-        .from ("product_Image")
-        .upload (filePath,ProductImg,{
-            cacheControl: '3600', 
-            upsert: False, 
-            contentType: ProductImg.type
-        }); 
+
         
         // --------Phần Insert biến trên vào supabase table-----------------
          const { data, error } = await supabaseClient
