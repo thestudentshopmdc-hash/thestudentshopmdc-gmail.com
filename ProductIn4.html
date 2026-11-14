@@ -89,14 +89,14 @@
         const filePath = `products/${productId}-${Date.now()}.${ext}`;
         
         //------------------ Phần lưu vào storage (Hình ảnh người dùng cung cấp)----------------------
-        const {dataImgSTC, error} = await supabaseClient.storage
+        const {dataImgSTC, errorSTC} = await supabaseClient.storage
         .from ("student_Card")
         .upload ("filePath",cardImg,{
             cacheControl: '3600', 
             upsert: False, 
             contentType: cardImg.type
         }); 
-        const {dataImgPR, error} = await supabaseClient.storage
+        const {dataImgPR, errorPR} = await supabaseClient.storage
         .from ("product_Image")
         .upload ("filePath",ProductImg,{
             cacheControl: '3600', 
