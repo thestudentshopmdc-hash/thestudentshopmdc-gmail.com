@@ -81,7 +81,14 @@
         // Khai báo biến cho Sản phẩm data
         const ProductName= document.getElementById("ProductName").value 
         const ProductDetail = document.getElementById("ProductDetail").value 
-        const ProductPrice = document.getElementById("PriceTag").value     
+        const ProductPrice = document.getElementById("PriceTag").value  
+        //------------------ Phần lưu vào storage (Hình ảnh người dùng cung cấp)----------------------
+
+
+
+
+
+        
         
         // --------Phần Insert biến trên vào supabase table-----------------
          const { data, error } = await supabaseClient
@@ -98,7 +105,7 @@
             product_Price: ProductPrice , 
             product_Detail: ProductDetail
             }
-         ])
+         ])     
         .select() // hàm này giúp mình tự thêm ID cho phần đăng ký đó
         if(error){
             alert("Đăng ký thất bại do "+ error.message)       // nếu gửi data thất bại
