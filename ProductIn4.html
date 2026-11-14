@@ -91,7 +91,7 @@
         
         
         //------------------ Phần lưu vào storage (Hình ảnh người dùng cung cấp)----------------------
-        const {dataImgSTC, errorSTC} = await supabaseClient.storage
+        const {data:dataImgSTC,error: errorSTC} = await supabaseClient.storage
         .from ("student_Card")
         .upload (filePath,cardImg,{
             cacheControl: '3600', 
