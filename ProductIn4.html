@@ -78,17 +78,31 @@
         const schoolName = document.getElementById("schoolName").value 
         const phoneNumber = document.getElementById("phoneNumber").value 
         const linkFacebook= document.getElementById("facebookAccount").value
-        // Khai báo biến cho Sản phẩm data
+        // Khai báo biến cho Sản phẩm data (dạng text)
         const ProductName= document.getElementById("ProductName").value 
         const ProductDetail = document.getElementById("ProductDetail").value 
-        const ProductPrice = document.getElementById("PriceTag").value  
-        //------------------ Phần lưu vào storage (Hình ảnh người dùng cung cấp)----------------------
-
-
-
-
-
+        const ProductPrice = document.getElementById("PriceTag").value 
         
+        // Khai báo biến cho Sản phẩm data (dạng file)
+        const cardImg= document.getElementById("ImageCard"").file[0]; 
+        const ProductImg= document.getElementById("ProductImag").file[0]; 
+        const filePath = `products/${productId}-${Date.now()}.${ext}`;
+        
+        //------------------ Phần lưu vào storage (Hình ảnh người dùng cung cấp)----------------------
+        const {data, error} = await supabaseClient.storage
+        .from ("student_Card")
+        .upload ("filePath",cardImg,{
+            cacheControl: '3600', 
+            upsert: False, 
+            contentType: cardImg.type
+        }); 
+        const {data, error} = await supabaseClient.storage
+        .from ("product_Image")
+        .upload ("filePath",ProductImg,{
+            cacheControl: '3600', 
+            upsert: False, 
+            contentType: ProductImg.type
+        }); 
         
         // --------Phần Insert biến trên vào supabase table-----------------
          const { data, error } = await supabaseClient
