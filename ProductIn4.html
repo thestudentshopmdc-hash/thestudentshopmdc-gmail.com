@@ -99,7 +99,10 @@
             upsert: false, 
             contentType: cardImg.type
         }); 
-
+        if (errorSTC) {
+            alert("Upload ảnh thẻ thất bại" + errorSTC.message);
+            return;
+        }
         
         // --------Phần Insert biến trên vào supabase table-----------------
          const { data, error } = await supabaseClient
