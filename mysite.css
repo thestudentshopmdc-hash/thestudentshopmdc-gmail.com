@@ -1,11 +1,11 @@
 #background{
     background-color:rgb(92, 225, 230) ; 
-    width: cover ; 
+    width: device-width ; 
     height: 207px ; 
 }
 #background2{
     background-color: rgb(92, 184, 230); 
-    width: cover ; 
+    width: device-width ; 
     height: 103px;
     position: relative; 
     bottom: 103px; 
